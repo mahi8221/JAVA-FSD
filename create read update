@@ -1,0 +1,78 @@
+import java.io.*;
+
+public class FileCRUDExample {
+    public static void main(String[] args) {
+        // File paths
+        String filePath = "sample.txt";
+
+        // Create a file
+        createFile(filePath);
+
+        // Read from file
+        readFile(filePath);
+
+        // Update the file
+        updateFile(filePath, "This is the updated content.");
+
+        // Read updated file content
+        readFile(filePath);
+
+        // Delete the file
+        deleteFile(filePath);
+    }
+
+    // Create a file
+    public static void createFile(String filePath) {
+        try {
+            File file = new File(filePath);
+            if (file.createNewFile()) {
+                System.out.println("File created: " + file.getName());
+            } else {
+                System.out.println("File already exists.");
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred while creating the file.");
+            e.printStackTrace();
+        }
+    }
+
+    // Read from a file
+    public static void readFile(String filePath) {
+        try {
+            File file = new File(filePath);
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            String line;
+            System.out.println("File content:");
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+            reader.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred while reading the file.");
+            e.printStackTrace();
+        }
+    }
+
+    // Update a file
+    public static void updateFile(String filePath, String content) {
+        try {
+            FileWriter writer = new FileWriter(filePath);
+            writer.write(content);
+            writer.close();
+            System.out.println("File updated successfully.");
+        } catch (IOException e) {
+            System.out.println("An error occurred while updating the file.");
+            e.printStackTrace();
+        }
+    }
+
+    // Delete a file
+    public static void deleteFile(String filePath) {
+        File file = new File(filePath);
+        if (file.delete()) {
+            System.out.println("File deleted: " + file.getName());
+        } else {
+            System.out.println("Failed to delete the file.");
+        }
+    }
+}
