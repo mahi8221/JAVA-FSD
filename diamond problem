@@ -1,0 +1,37 @@
+interface Animal {
+    void makeSound();
+}
+
+interface Mammal extends Animal {
+    void run();
+}
+
+interface Bird extends Animal {
+    void fly();
+}
+
+class Bat implements Mammal, Bird {
+    @Override
+    public void makeSound() {
+        System.out.println("Bat makes sound");
+    }
+
+    @Override
+    public void run() {
+        System.out.println("Bat can run");
+    }
+
+    @Override
+    public void fly() {
+        System.out.println("Bat can fly");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Bat bat = new Bat();
+        bat.makeSound();
+        bat.run();
+        bat.fly();
+    }
+}
