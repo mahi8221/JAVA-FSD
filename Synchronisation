@@ -1,0 +1,38 @@
+class Counter {
+    private int count = 0;
+    public synchronized void increment() {
+        count++;
+        System.out.println("Count is: " + count);
+    }
+}
+
+class MyThread extends Thread {
+    private Counter counter;
+
+    public MyThread(Counter counter) {
+        this.counter = counter;
+    }
+
+    public void run() {
+        for (int i = 0; i < 5; i++) {
+            counter.increment();
+            try {
+                Thread.sleep(100); // Just to simulate some work
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Counter counter = new Counter();
+
+        MyThread thread1 = new MyThread(counter);
+        MyThread thread2 = new MyThread(counter);
+
+        thread1.start();
+        thread2.start();
+    }
+}
