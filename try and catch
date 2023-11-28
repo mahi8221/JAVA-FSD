@@ -1,0 +1,18 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class TryCatchDemo {
+    public static void main(String[] args) {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("nonexistentfile.txt"));
+            String line = reader.readLine();
+            System.out.println("First line of the file: " + line);
+            reader.close();
+        } catch (IOException e) {
+            System.out.println("File not found or error reading the file: " + e.getMessage());
+        } finally {
+            System.out.println("This block is always executed.");
+        }
+    }
+}
