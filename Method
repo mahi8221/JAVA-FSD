@@ -1,0 +1,32 @@
+public class MethodExample {
+
+    public void methodWithNoParameters() {
+        System.out.println("Method with no parameters called.");
+    }
+
+    public void methodWithParameters(int a, int b) {
+        int sum = a + b;
+        System.out.println("Sum of " + a + " and " + b + " is: " + sum);
+    }
+
+    public int methodReturningValue(int a, int b) {
+        return a * b;
+    }
+
+    public static void staticMethod() {
+        System.out.println("This is a static method.");
+    }
+
+    public static void main(String[] args) {
+        MethodExample obj = new MethodExample();
+
+        obj.methodWithNoParameters();
+
+        obj.methodWithParameters(5, 10);
+
+        int result = obj.methodReturningValue(3, 4);
+        System.out.println("Result of multiplication: " + result);
+
+        MethodExample.staticMethod();
+    }
+}
