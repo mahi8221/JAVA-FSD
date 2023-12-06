@@ -1,0 +1,29 @@
+public class BinarySearch {
+
+    public static void main(String[] args) {
+        int[] arr = {3, 6, 9, 12, 15};
+        int key = 12;
+        int arrLength = arr.length;
+        binarySearch(arr, 0, key, arrLength);
+    }
+
+    public static void binarySearch(int[] arr, int start, int key, int length) {
+        int midValue;
+        while (start <= length) {
+            midValue = start + (length - start) / 2;
+
+            if (midValue < 0 || midValue >= arr.length)
+                break;
+
+            if (arr[midValue] == key) {
+                System.out.println("Element is found at index: " + midValue);
+                return;
+            } else if (arr[midValue] < key) {
+                start = midValue + 1;
+            } else {
+                length = midValue - 1;
+            }
+        }
+        System.out.println("Element is not found");
+    }
+}
