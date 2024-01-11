@@ -1,0 +1,10 @@
+com\ecommerce\service\UserService.class
+com\ecommerce\repository\VaccineCenterRepository.class
+com\ecommerce\entity\VaccineCenter.class
+com\ecommerce\entity\User.class
+com\ecommerce\entity\Citizen.class
+com\ecommerce\repository\UserRepository.class
+com\ecommerce\service\CitizenService.class
+com\ecommerce\repository\CitizenRepository.class
+com\ecommerce\controller\UserController.class
+com\ecommerce\VaccinationCentreApplication.class
